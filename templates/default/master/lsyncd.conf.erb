@@ -1,0 +1,12 @@
+settings = {
+        logfile    = "/var/log/lsyncd.log",
+        statusFile = "/tmp/lsyncd.stat",
+        statusInterval = 1,
+}
+
+sync{
+        default.rsync,
+        source="/home/app/public/",
+        target=<%= node[:web_sync][:slave_hosts].map{|h| "'#{h}::public'" }.join(',') %>
+}
+

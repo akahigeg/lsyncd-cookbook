@@ -1,0 +1,12 @@
+## Global Settings
+uid = root
+gid = root
+dont compress = *.gz *.tgz *.zip *.pdf *.sit *.sitx *.lzh *.bz2 *.jpg *.jpeg *.gif *.png
+log file = /var/log/rsyncd.log
+pid file = /var/run/rsyncd.pid
+
+[public]
+    path = /home/app/public
+    hosts allow = <%= node[:web_sync][:master_host] %>
+    read only = no
+
