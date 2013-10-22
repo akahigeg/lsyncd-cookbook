@@ -6,7 +6,7 @@ settings = {
 
 sync{
         default.rsync,
-        source="/home/app/public/",
-        target=<%= node[:web_sync][:slave_hosts].map{|h| "'#{h}::public'" }.join(',') %>
+        source="<%= node[:lsyncd][:sync_path] %>",
+        target=<%= node[:lsyncd][:slave_hosts].map{|h| "'#{h}::public'" }.join(',') %>
 }
 

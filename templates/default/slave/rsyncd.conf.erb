@@ -6,7 +6,7 @@ log file = /var/log/rsyncd.log
 pid file = /var/run/rsyncd.pid
 
 [public]
-    path = /home/app/public
-    hosts allow = <%= node[:web_sync][:master_host] %>
+    path = <%= node[:lsyncd][:sync_path] %>
+    hosts allow = <%= node[:lsyncd][:master_host] %>
     read only = no
 
