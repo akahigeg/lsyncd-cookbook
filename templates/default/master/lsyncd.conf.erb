@@ -1,10 +1,10 @@
-settings = {
+settings {
         logfile    = "/var/log/lsyncd.log",
         statusFile = "/tmp/lsyncd.stat",
         statusInterval = 1,
 }
 
-sync{
+sync {
         default.rsync,
         source="<%= node[:lsyncd][:sync_path] %>",
         target=<%= node[:lsyncd][:slave_hosts].map{|h| "'#{h}::public'" }.join(',') %>
